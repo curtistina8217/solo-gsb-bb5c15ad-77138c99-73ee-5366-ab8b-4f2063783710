@@ -55,6 +55,44 @@
         </table>
       </div>
     </section>
+
+    <section class="card">
+      <h2>4. 双语字幕对齐（可选）</h2>
+      <p class="hint">主轨为上方“校正后的 SRT”（成片时间轴）。再粘贴或上传一份<b>同一成片时间轴</b>上的副轨 SRT（如英文字幕），服务端按时间区间交叠做顺序保持的一对一配对。</p>
+      <div class="row">
+        <input type="file" id="secondaryFileInput" accept=".srt,.txt" />
+        <button type="button" id="secondaryClearBtn" class="secondary">清空副轨</button>
+      </div>
+      <textarea id="secondaryInput" rows="8" placeholder="在此粘贴副轨 SRT 内容，或选择 .srt 文件上传…"></textarea>
+      <div class="row" style="margin-top: 10px;">
+        <button type="button" id="alignBtn" disabled>开始对齐</button>
+        <button type="button" id="downloadCsvBtn" disabled>下载对齐结果 CSV</button>
+      </div>
+      <div id="alignMessage" class="message" hidden></div>
+    </section>
+
+    <section class="card" id="alignCard" hidden>
+      <h2>
+        对齐结果：配对 <span id="pairCount">0</span> 对，
+        主轨未配对 <span id="unmatchedMainCount">0</span> 条，
+        副轨未配对 <span id="unmatchedSecCount">0</span> 条
+      </h2>
+      <div class="table-wrap">
+        <table class="align-table">
+          <thead>
+            <tr>
+              <th colspan="4" class="main-col">主轨（校正后）</th>
+              <th colspan="4" class="sec-col">副轨</th>
+            </tr>
+            <tr>
+              <th class="main-col">序号</th><th class="main-col">开始</th><th class="main-col">结束</th><th class="main-col">正文</th>
+              <th class="sec-col">序号</th><th class="sec-col">开始</th><th class="sec-col">结束</th><th class="sec-col">正文</th>
+            </tr>
+          </thead>
+          <tbody id="alignBody"></tbody>
+        </table>
+      </div>
+    </section>
   </main>
   <script src="app.js"></script>
 </body>

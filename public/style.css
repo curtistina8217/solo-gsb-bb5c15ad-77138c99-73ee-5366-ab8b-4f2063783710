@@ -82,3 +82,25 @@ button.danger { background: #cf222e; padding: 4px 10px; font-size: 13px; }
 }
 .message.error { background: #ffebe9; border: 1px solid #ff818266; color: #82071e; }
 .message.ok { background: #dafbe1; border: 1px solid #4ac26b66; color: #116329; }
+
+.hint { color: #57606a; font-size: 13px; margin: 0 0 10px; }
+
+.align-table { border-collapse: collapse; width: 100%; }
+.align-table th, .align-table td {
+  border: 1px solid #d0d7de;
+  padding: 6px 8px;
+  text-align: left;
+  font-size: 13px;
+  vertical-align: top;
+}
+.align-table th { background: #f6f8fa; }
+.align-table th.main-col { background: #ddf4ff; }
+.align-table th.sec-col { background: #fff8c5; }
+.align-table td.time { font-family: Consolas, monospace; white-space: nowrap; }
+.align-table td.text { white-space: pre-wrap; }
+.align-table td.main-col { background: #f6fbff; }
+.align-table td.sec-col { background: #fffdf5; }
+.align-table tr.unmatched-main td.sec-col,
+.align-table tr.unmatched-sec td.main-col { background: #f6f8fa; color: #8c959f; }
+.align-table tr.unmatched-main td.main-col,
+.align-table tr.unmatched-sec td.sec-col { background: #ffebe9; }
