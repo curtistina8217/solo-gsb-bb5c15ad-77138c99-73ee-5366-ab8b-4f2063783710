@@ -9,7 +9,7 @@
 <body>
   <main class="container">
     <h1>SRT 字幕时间校正工具</h1>
-    <p class="subtitle">按“原片时间 → 成片时间”锚点对字幕做分段线性映射，供纪录片剪辑对齐使用。</p>
+    <p class="subtitle">按“原片时间 → 成片时间”锚点对字幕做分段线性映射，并可把校正后的主轨与成片时间轴上的副轨字幕做双语对齐。</p>
 
     <section class="card">
       <h2>1. 输入 SRT 字幕</h2>
@@ -52,6 +52,55 @@
             </tr>
           </thead>
           <tbody id="resultBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>4. 双语字幕对齐（主轨 = 第 3 步校正后的 SRT）</h2>
+      <div class="row">
+        <input type="file" id="secondaryFileInput" accept=".srt,.txt" />
+        <button type="button" id="loadSecondarySampleBtn" class="secondary">载入副轨示例</button>
+        <button type="button" id="clearSecondaryBtn" class="secondary">清空副轨</button>
+      </div>
+      <textarea id="secondaryInput" rows="8" placeholder="粘贴成片时间轴上的副轨 SRT（另一语言），或选择文件上传…"></textarea>
+      <div class="row" style="margin-top: 10px;">
+        <button type="button" id="alignBtn">开始对齐</button>
+        <button type="button" id="downloadCsvBtn" disabled>下载对齐 CSV</button>
+      </div>
+      <div id="alignMessage" class="message" hidden></div>
+    </section>
+
+    <section class="card" id="alignResultCard" hidden>
+      <h2>对齐结果（配对 <span id="pairCount">0</span> 对 · 主轨未配对 <span id="unmatchedPrimaryCount">0</span> 条 · 副轨未配对 <span id="unmatchedSecondaryCount">0</span> 条）</h2>
+      <h3>配对</h3>
+      <div class="table-wrap">
+        <table class="result-table">
+          <thead>
+            <tr>
+              <th>主轨序号</th><th>主轨时间</th><th>副轨序号</th><th>副轨时间</th>
+              <th>交叠(ms)</th><th>主轨正文</th><th>副轨正文</th>
+            </tr>
+          </thead>
+          <tbody id="pairBody"></tbody>
+        </table>
+      </div>
+      <h3>主轨未配对</h3>
+      <div class="table-wrap">
+        <table class="result-table">
+          <thead>
+            <tr><th>序号</th><th>开始</th><th>结束</th><th>正文</th></tr>
+          </thead>
+          <tbody id="unmatchedPrimaryBody"></tbody>
+        </table>
+      </div>
+      <h3>副轨未配对</h3>
+      <div class="table-wrap">
+        <table class="result-table">
+          <thead>
+            <tr><th>序号</th><th>开始</th><th>结束</th><th>正文</th></tr>
+          </thead>
+          <tbody id="unmatchedSecondaryBody"></tbody>
         </table>
       </div>
     </section>

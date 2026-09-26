@@ -20,6 +20,7 @@ h1 { font-size: 24px; margin: 8px 0 4px; }
   margin-top: 16px;
 }
 .card h2 { font-size: 17px; margin: 0 0 12px; }
+.card h3 { font-size: 15px; margin: 14px 0 8px; }
 
 .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
 
@@ -69,6 +70,7 @@ button.danger { background: #cf222e; padding: 4px 10px; font-size: 13px; }
 
 .result-table td.time { font-family: Consolas, monospace; white-space: nowrap; }
 .result-table td.text { white-space: pre-wrap; max-width: 320px; }
+.result-table td.empty { color: #57606a; text-align: center; }
 .result-table tr.problem td { background: #ffebe9; }
 
 .table-wrap { overflow-x: auto; }
